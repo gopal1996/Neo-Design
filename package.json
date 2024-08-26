@@ -3,7 +3,7 @@
   "private": false,
   "description": "Simple design library for pet projects",
   "module": "dist/index.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "types": "dist/index.d.ts",
   "devDependencies": {
