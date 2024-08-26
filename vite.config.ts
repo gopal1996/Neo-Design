@@ -23,4 +23,9 @@ export default {
     emptyOutDir: true,
   },
   plugins: [react(), dts()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 } satisfies UserConfig;
