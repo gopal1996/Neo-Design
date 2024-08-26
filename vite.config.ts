@@ -1,7 +1,6 @@
 import path from "node:path";
 import type { UserConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import dts from "vite-plugin-dts";
 
 export default {
   build: {
@@ -22,7 +21,7 @@ export default {
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [react(), dts({ rollupTypes: true })],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

@@ -19,6 +19,7 @@
     "postcss": "^8.4.41",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.10",
+    "tsup": "^8.2.4",
     "vite": "^5.4.1",
     "vite-plugin-dts": "^4.0.3",
     "vitest": "^2.0.5"
@@ -37,19 +38,20 @@
     "./package.json": "./package.json",
     ".": {
       "import": {
-        "default": "./dist/index.js",
-        "types": "./dist/index.d.ts"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       },
       "require": {
-        "default": "./dist/index.umd.cjs",
-        "types": "./dist/index.d.ts"
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.umd.cjs"
       }
     }
   },
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "dts": "tsup",
+    "build": "vite build && bun run dts",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
