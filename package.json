@@ -7,6 +7,8 @@
   "type": "module",
   "types": "dist/index.d.ts",
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.4",
+    "@chromatic-com/storybook": "^1.7.0",
     "@types/bun": "latest",
     "@types/node": "^22.5.0",
     "@types/react": "^18.3.3",
@@ -14,10 +16,11 @@
     "@vitejs/plugin-react-swc": "^3.7.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",
+    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.10",
     "vite": "^5.4.1",
     "vite-plugin-dts": "^4.0.3",
-    "@chromatic-com/storybook": "^1.7.0"
+    "vitest": "^2.0.5"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
@@ -28,21 +31,31 @@
   "files": [
     "/dist"
   ],
+  "main": "dist/index.es.js",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.js",
       "types": "./dist/index.d.ts"
     }
   },
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "check-exports": "attw --pack .",
+    "test": "vitest run",
+    "test-dev": "vitest",
+    "ci": "bun run build && bun run check-format && bun run check-exports && bun run test"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-interactions": "^8.2.9",
     "@storybook/addon-links": "^8.2.9",
