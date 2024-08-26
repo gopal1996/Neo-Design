@@ -8,6 +8,7 @@
   "types": "dist/index.d.ts",
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.15.4",
+    "@changesets/cli": "^2.27.7",
     "@chromatic-com/storybook": "^1.7.0",
     "@types/bun": "latest",
     "@types/node": "^22.5.0",
