@@ -8,7 +8,7 @@ export default {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "neo-design-library",
-      fileName: (format) => `index.${format}.js`,
+      fileName: `index`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],
@@ -22,7 +22,7 @@ export default {
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [react(), dts()],
+  plugins: [react(), dts({ rollupTypes: true })],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
